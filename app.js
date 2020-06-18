@@ -14,7 +14,7 @@
 var count = 0;
 var player1 = [];
 var player2= [];
-const winningConditions = [
+var win = [
     [0, 1, 2],
     [3, 4, 5],
     [6, 7, 8],
@@ -35,11 +35,40 @@ function playing(elem) {
             player2.push(elem.id)       
         }
         count+=1;  
-        func()
+        func1()
 }
 
-function func(){
-    if(winningConditions.includes(player1)){
-        console.log("player 1 win")
+
+function func(){ 
+    var win = [];
+    if(player1.length === 3){
+        for(var i = 0; i < win.length; i++){
+            //console.log(win[i])
+            for(var j = 0; j < win[i].length; j++){
+                console.log(win[i][j])
+                if(player1[j] !== win[i][j]){
+                   return false;
+                }
+            }
+            document.getElementByClassId("result").innerHTML("player 1 win")
+        
+        }    
+    }
+}
+
+function func(){ 
+    var win = [];
+    if(player2.length === 3){
+        for(var i = 0; i < win.length; i++){
+            //console.log(win[i])
+            for(var j = 0; j < win[i].length; j++){
+                console.log(win[i][j])
+                if(player2[j] !== win[i][j]){
+                   return false;
+                }
+            }
+            document.getElementByClassId("result").innerHTML("player 2 win")
+        
+        }    
     }
 }
